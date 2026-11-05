@@ -11,6 +11,7 @@ public class Program
     {
         bool sorted = false;
         int A =0;
+        int E=0;
         int swap = 0;
        string[] NameLis = {"Harry","Reuben","Jimmy","Kodi","Tom","Matthew","Finn","Aiaa"};
        while (sorted == false)
@@ -18,11 +19,11 @@ public class Program
         for (int i = 0; i < NameLis.Length; i++)
         {
         swap = 0;
-                if (Convert.ToUInt16(NameLis[A].Substring(0)) > Convert.ToUInt16(NameLis[A+1].Substring(0)))
+                if (Convert.ToUInt32(char.Parse(NameLis[A].Substring(0,1))) > Convert.ToUInt32(char.Parse(NameLis[A+1].Substring(0,1))))
             {
-                 string saver2 = NameLis[A+1];
+                string saver = NameLis[A];
                  NameLis[A] =   NameLis[A+1];
-                 NameLis[A+1] = saver2;
+                 NameLis[A+1] = saver;
             }
             else
             {
@@ -39,7 +40,13 @@ public class Program
                 break;
             }
          A++;
-         Console.WriteLine("Pass "+ A);
+         E++;
+         Console.WriteLine("Pass "+ E);
+         Console.WriteLine();
+         for (int i = 0; i < NameLis.Length; i++)
+         {
+            Console.Write(NameLis[i]+", ");
+         }
        }
     } 
    public static bool LinearSearch(string name)
@@ -50,7 +57,7 @@ public class Program
         {
           if (NameList[i]== name)
             {
-                Console.WriteLine("Found "+ NameList[i]+ " At position "+i+" of list");
+                Console.WriteLine("Found "+ NameList[i]+ " At index "+i+" of list");
                 status = true;
             }
         }
